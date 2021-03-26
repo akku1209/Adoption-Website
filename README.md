@@ -1,4 +1,4 @@
-#PAWDOPTIONS
+# PAWDOPTIONS
 ## Animal Adoption System
 A user-friendly platform for animal adoptions for all the adopters and pet owners all over Pune.  
 ##Technologies
