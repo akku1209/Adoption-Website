@@ -8,3 +8,6 @@ MySQL : Database at the backend
 
 HTML, CSS, Bootstrap, Jinja : For user interface
 ## Installations
+
+1. Create virtual environment
+ - 
