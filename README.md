@@ -22,5 +22,7 @@ HTML, CSS, Bootstrap : For user interface
 5. Run `python manage.py runserver` 
 OR  Run local server on broswer `127.0.0.1:8000`
 
-
+### Note
+.vscode file is for running in Visual Studio Code.
+Remove it when executing on any other platform.
 
