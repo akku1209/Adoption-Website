@@ -1,0 +1,45 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            {% include 'auctions/messages.html' %}
+            <div class="col-md-4 col-lg-8">
+                <h1>{{ listing.headline }}</h1>
+                {% if comments %}
+                    <p><a href="#comments"><strong>View Comments</strong></a> on this listing.</p>{% endif %}
+                {% include 'auctions/card_listing.html' %}
+                {% if comments %}
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                            <h4 class="card-text" id="comments">All User Comments</h4>
+                        </div>
+                        <div class="card-text">
+                            <ul class="list-group list-group-flush">
+                                {% for comment in comments %}
+                                    <li class="list-group-item"><img style="height: 32px"
+                                                                     src="/static/auctions/user_icon.png"/>
+                                        {{ comment.owner }} <small class="text-muted">wrote
+                                            on {{ comment.comment_date |date }}
+                                            in {{ listing.get_category_display }}</small>
+                                        <p><strong>{{ comment.headline }}</strong>
+                                            {{ comment.description }}</p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+            <!-- When a listing is closed, show the bid card which  -->
+            <!-- includes a summary, but hide the comment form.      -->
+                {% include 'auctions/card_bid.html' %}
+                {% if listing.status != listing.CLOSED %}
+                    {% include 'auctions/card_comment.html' %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

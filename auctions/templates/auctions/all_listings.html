@@ -1,0 +1,71 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    {% include 'auctions/messages.html' %}
+    <div class="album py-1 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1>{{ category_heading }}</h1>
+                </div>
+                <div class="col-lg-6 text-right">
+                {% if '/watchlist' not in request.path %}
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle mb-3" type="button" id="dropdownMenuButton"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Category Filter
+                        </button>
+                
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{% url 'all_listings' %} ">All Listings</a>
+                            {% for key, value in category %}
+                                <a class="dropdown-item" href="{% url 'category_sort' key %} ">{{ value }}</a>
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                {% endif %}
+                </div>
+                <div class="col-lg-6">
+                    <h1>{{ city_heading }}</h1>
+                </div>
+                <div class="col-lg-6 text-right">
+                {% if '/watchlist' not in request.path %}
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle mb-3" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">City Filter
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{% url 'all_listings' %} ">All Listings</a>
+                            {% for key, value in city %} 
+                            <a class="dropdown-item" href="{% url 'city_sort' key %}">{{ value }}</a>
+                            {%endfor%}
+                        </div>
+                    </div>
+                {% endif %}
+                </div>
+                <div class="row">
+                    {% for listing in listings %}
+                        <div class="col-md-4">
+                            {% include 'auctions/card_listing.html' %}
+                        </div>
+                    {% empty %}
+                        <section class="jumbotron text-center">
+                            <div class="container">
+                                <div class="col-lg-12 my-10">
+                                    <h4>No listings found.</h4>
+                                </div>
+                            </div>
+                        </section>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        
+
+    {% if 'watchlist' in request.path %}
+    <h2>Turn on the recommending section and explore more to know your furry family member better!</h2>
+    <h3>Click here for going ahead or click back to top to go ahead with browsing!</h3>
+    <a class="button" href="{% url 'option' %}" ><span>Click</span></a>
+    {% endif %} 
+{% endblock %}

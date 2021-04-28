@@ -1,0 +1,28 @@
+<div class="card mt-3">
+    <div class="card-header ">
+        <h4>Add Comment</h4>
+    </div>
+    <div class="form-group">
+        <form method="post" action="{% url "add_comment" %}">
+            {% csrf_token %}
+            <ul class="list-group list-group-flush">
+            <!-- Authenticated users only can comment. -->
+                {% if user.is_authenticated %}
+                    <input type="hidden" name="listing_id" value="{{ listing.id }}"/>
+                    <li class="list-group-item">
+                        {{ comment_form.headline }}</li>
+                    <li class="list-group-item">   {{ comment_form.description }}</li>
+                    <li class="list-group-item text-right">
+                        <input class="btn btn-primary" type="submit" value="Add Comment">
+                    </li>
+                {% else %}
+                    <li class="list-group-item text-right">
+                        <strong>Please <a href="{% url 'login' %}">login</a> to
+                            Comment.</strong>
+                        <input class="btn btn-secondary" disabled type="submit" value="Comment">
+                    </li>
+                {% endif %}
+            </ul>
+        </form>
+    </div>
+</div>

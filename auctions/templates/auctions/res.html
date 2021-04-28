@@ -1,0 +1,31 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+  
+    <form action="watchlist" text-align='center'>
+        <div text-align='center' class='results_disp'>
+            <h1 text-align='center'>Recommended Articles & Blogs for you</h1>
+            <h4>Click the below links to open the articles OR click -Home to go back and explore more.</h4>
+            <br>
+            <br>
+
+            <table style="text-align: center;">
+                <thead>
+                    
+                    <th>Link</th>
+                    
+                </thead>
+                {% for i in article_dict %}
+                <tr>
+                    
+                    <td><a href='{{i.link}}'>{{i.link}}</a></td>
+                   
+                </tr>
+                {% endfor %}
+            </table>
+            <br>
+        </div>
+    </form>
+
+    
+{% endblock %}

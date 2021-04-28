@@ -1,0 +1,70 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5">
+                {% include 'auctions/messages.html' %}
+                <h1>Create a Listing</h1>
+                <form action="{% url 'create_listing' %}" method="post" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Category</label>
+                        </div>
+                        {{ form.category }}
+                    </div>
+                    <small class="text-muted"><strong>Name</strong></small>
+                    <div class="input-group mb-3">
+                        {{ form.headline }}
+                    </div>
+                    <small class="text-muted"><strong>Breed</strong></small>
+                    <div class="input-group mb-3">
+                        {{ form.breed }}
+                    </div>
+                    <small class="text-muted"><strong>Gender</strong></small>
+                    <div class="input-group mb-3">
+                        {{ form.gender }}
+                    </div>
+                    <small class="text-muted"><strong>Age (in months)</strong></small>
+                    <div class="input-group mb-3">
+                        {{ form.age }}
+                    </div>
+                    <small class="text-muted"><strong>Weight (approx in kgs)</strong></small>
+                    <div class="input-group mb-3">
+                        {{ form.weight }}
+                    </div>
+                     <small class="text-muted"><strong>Description (required), Maximum 1000 characters</strong></small>
+                    <div class="input-group mb-3">
+                        {{ form.description }}
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">City</label>
+                        </div>
+                        {{ form.city }}
+                    </div>
+                    <small class="text-muted"><strong>Contact</strong></small>
+                    <div class="input-group mb-3">
+                        {{ form.contact }}
+                    </div>
+                     <small class="text-muted">Image URL</small>
+                    <div class="input-group mb-3">
+                        {{ form.image_url }}
+                    </div>
+                    
+                    <small class="text-muted"><strong>If up for fostering, enter number of days you can foster.</strong></small>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"></span>
+                        </div>
+                        {{ form.min_bid }}
+                        <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                        </div>
+                    </div>
+                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Create">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

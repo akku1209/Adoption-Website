@@ -1,0 +1,137 @@
+:root {
+    --jumbotron-padding-y: 3rem;
+}
+
+.jumbotron {
+    padding-top: var(--jumbotron-padding-y);
+    padding-bottom: var(--jumbotron-padding-y);
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+@media (min-width: 768px) {
+    .jumbotron {
+        padding-top: calc(var(--jumbotron-padding-y) * 2);
+        padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+    }
+}
+
+.jumbotron p:last-child {
+    margin-bottom: 0;
+}
+
+.jumbotron-heading {
+    font-weight: 300;
+}
+
+.jumbotron .container {
+    max-width: 40rem;
+}
+
+footer {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+footer p {
+    margin-bottom: .25rem;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+.navbar{
+    background-color: #4cebd0!important;
+}
+
+.container {
+	display: table;
+	width: 100%;
+	
+  }
+  
+.left-half {
+	
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	position: absolute;
+	left: 35px;
+	width: 35%; 
+	height: 55%;
+	margin: auto; 
+	border-radius: 60px;
+	
+  }
+  
+.right-half {
+	
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	position: absolute;
+	right: 35px;
+	width: 35%; 
+	height: 55%;
+	margin: auto; 
+	border-radius: 60px;
+  }
+.card-left {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	position: absolute;
+	left: 40px;
+	width: 45%; 
+	height: 75%;
+	margin: auto; 
+	}
+.card-right{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	position: absolute;
+	right:40px;
+	width: 45%; 
+	height: 75%;
+	margin: auto; 
+}
+.wrapper{
+	position: fixed;
+	top: 130%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  }
+  
+.wrapper a{
+	display: block;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 18px;
+	font-family: sans-serif;
+	text-decoration: none;
+	color: #333;
+	border: 2px solid #333;
+	letter-spacing: 2px;
+	text-align: center;
+	position: relative;
+	transition: all .35s;
+	}
+  
+.wrapper a span{
+	position: relative;
+	z-index: 2;
+	}
+  
+.wrapper a:after{
+	position: absolute;
+	content: "";
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	background: blue;
+	transition: all .35s;
+	}
+  
+.wrapper a:hover{
+	color: #fff;
+	}
+  
+.wrapper a:hover:after{
+	width: 100%;
+	}
+  

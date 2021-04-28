@@ -1,0 +1,67 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    
+    <img src="https://i.postimg.cc/rpScdN7V/pet.png" width="1265px" height="350px"> 
+    {% include 'auctions/messages.html' %}
+    <div class=" text-center h-75">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="jumbotron-heading">Welcome to PAWDOPTIONS. </h1>
+                    
+                    {% if not user.is_authenticated %}
+                        <p> You will need to <a href="{% url 'register' %}">register</a> or <a
+                                href="{% url 'login' %}">login</a> to
+                            start exploring. Hope you find a furry friend soon!</p>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+            <br>
+
+            
+
+
+
+            
+        </div>
+    </div>
+    <section class="container">
+        <h1 style="text-align: center;" id="info">Planning to Adopt a Pet?</h1>
+        <br>
+        <br>
+        <div class="left-half" >
+            <article>
+              <h1>Checklist for New Adopters</h1>
+              <p>Help make the transition, as smooth as possible</p>
+              <div class="wrapper">
+              <a class="button" href="{% url 'checklist' %}" ><span>Learn More</span></a>
+              </div>
+            </article>
+        </div>
+        <div class="right-half">
+            <article>
+              <h1>FAQs</h1>
+              <p>Get the answers to questions you haven't thought of.</p>
+              <div class="wrapper">
+              <a class="button" href="{% url 'faqs' %}" ><span>Learn More</span></a>
+              </div>
+            </article>
+        </div>
+    </section>
+    
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for listing in listings %}
+                    <div class="col-md-4">
+                        {% include 'auctions/card_listing.html' %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    
+{% endblock %}
